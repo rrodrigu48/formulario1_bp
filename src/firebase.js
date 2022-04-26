@@ -5,7 +5,7 @@ import 'firebase/firestore'
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
+ const firebaseConfig = {
     apiKey: "AIzaSyA51CjM7r0zd9EtJE_un5-zTf7xkIeP3kA",
     authDomain: "crup-registro2-bp.firebaseapp.com",
     projectId: "crup-registro2-bp",

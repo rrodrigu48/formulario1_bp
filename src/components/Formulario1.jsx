@@ -72,7 +72,6 @@ const Formulario1 = () =>{
                 direccionCliente: cliente.direccion,
                 telefonoCliente: cliente.telefono,
                 edadCliente: cliente.edad
-                
             }
             await db.collection('clientes2').add(nuevoCliente)
             setLista([...lista,
@@ -210,8 +209,7 @@ const Formulario1 = () =>{
                                 <th scope="col">Direccion</th>
                                 <th scope="col">Telefono</th>
                                 <th scope="col">Edad</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Sexo</th>
+                              
                             </tr>
                         </thead>
                         <tbody>
@@ -223,8 +221,7 @@ const Formulario1 = () =>{
                                     <td>{item.direccionCliente}</td>
                                     <td>{item.telefonoCliente}</td>
                                     <td>{item.edadCliente}</td>
-                                    <td>{item.emailCliente}</td>
-                                    <td>{item.sexoCliente}</td>
+                                    
                                     <td>
                                         <button className='btn btn-danger btn-sm float-end mx-2' onClick={()=> eliminar(item.id)}>Eliminar</button>
                                     </td>
@@ -296,26 +293,7 @@ const Formulario1 = () =>{
                             />
                             <label>Edad</label>
                         </div>
-                        <div className="form-floating mb-3">
-                            <input 
-                                type="email" 
-                                className="form-control" 
-                                placeholder="Ingrese Email"
-                                onChange={(e)=> setCliente({ ...cliente, email: e.target.value })}
-                                value={cliente.email}
-                            />
-                            <label>Email</label>
-                        </div>
-                        <div className="form-floating mb-3">
-                            <input 
-                                type="text" 
-                                className="form-control" 
-                                placeholder="Ingrese Sexo"
-                                onChange={(e)=> setCliente({ ...cliente, sexo: e.target.value })}
-                                value={cliente.sexo}
-                            />
-                            <label>Sexo</label>
-                        </div>   
+                          
                         {
                             !modoEdicion? (
                                 <button className='btn btn-primary btn-block' type='submit'>Agregar</button>
@@ -336,4 +314,4 @@ const Formulario1 = () =>{
 
 }
 
-export default Formulario
+export default Formulario1

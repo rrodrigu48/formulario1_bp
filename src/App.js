@@ -1,5 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
+import Formulario1 from './components/Formulario1';
 
 function App() {
   return (
