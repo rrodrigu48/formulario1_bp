@@ -191,6 +191,7 @@ const Formulario1 = () =>{
         setModoEdicion(false)
         setError(null)
     }
+    const imagen = 'https://picsum.photos/100' 
     
     return (
         <div className='container mt-5'>
@@ -209,7 +210,7 @@ const Formulario1 = () =>{
                                 <th scope="col">Direccion</th>
                                 <th scope="col">Telefono</th>
                                 <th scope="col">Edad</th>
-                              
+                                <th scope="col">Imagen</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -221,6 +222,7 @@ const Formulario1 = () =>{
                                     <td>{item.direccionCliente}</td>
                                     <td>{item.telefonoCliente}</td>
                                     <td>{item.edadCliente}</td>
+                                    <td> <img src={imagen} /></td>
                                     
                                     <td>
                                         <button className='btn btn-danger btn-sm float-end mx-2' onClick={()=> eliminar(item.id)}>Eliminar</button>
