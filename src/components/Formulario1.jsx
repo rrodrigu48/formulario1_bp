@@ -97,9 +97,101 @@ const Formulario1 = () =>{
         
     }
 
+    const eliminar= async (id) =>{
+        try{
+            const db = firebase.firestore()
+            await db.collection('clientes').doc(id).delete()
+            const aux = lista.filter(item => item.id !== id)
+            setLista(aux)
+        }catch(error){
+            console.log(error)
+        }
+    }
 
+    const auxEditar = (item) =>{
+        setCliente(
+            {
+                nombre: item.nombreCliente,
+                apellido: item.apellidoCliente,
+                direccion: item.direccionCliente,
+                telefono: item.telefonoCliente,
+                edad: item.edadCliente,
+                email: item.emailCliente,
+                sexo: item.sexoCliente,
+            }
+        )
+        setModoEdicion(true)
+        setId(item.id)
+    }
+    const editar = async e =>{
+        e.preventDefault()
+        if(!cliente.nombre.trim()){
+            setError('Campo nombre vacío')
+            return
+        }
 
+        if(!cliente.apellido.trim()){
+            setError('Campo apellido vacío')
+            return
+        }
 
+        if(!cliente.direccion.trim()){
+            setError('Campo direccion vacío')
+            return
+        }
+        if(!cliente.telefono.trim()){
+            setError('Campo telefono vacío')
+            return
+        }
+        if(!cliente.edad.trim()){
+            setError('Campo edad vacío')
+            return
+        }
+      
+        try{
+            const db= firebase.firestore()
+            await db.collection('clientes').doc(id).update({
+                nombreCliente: cliente.nombre,
+                apellidoCliente: cliente.apellido,
+                direccionCliente: cliente.direccion,
+                telefonoCliente: cliente.telefono,
+                edadCliente: cliente.edad
+                
+            })
+
+           
+        }catch(error){
+            console.log(error)
+        }
+
+        setCliente(
+            {
+                nombre: '',
+                apellido: '',
+                direccion: '',
+                telefono: '',
+                edad: '',
+                
+            }
+        )
+        setModoEdicion(false)
+        setError(null)
+
+    }
+    const cancelar =()=>{
+        setCliente(
+            {
+                nombre: '',
+                apellido: '',
+                direccion: '',
+                telefono: '',
+                edad: '',
+                
+            }
+        )
+        setModoEdicion(false)
+        setError(null)
+    }
 
 
 
