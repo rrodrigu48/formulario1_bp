@@ -1,3 +1,6 @@
+:root {
+  --color-ffffff: #ffffff;
+}
 .App {
   text-align: center;
 }
@@ -35,4 +38,7 @@
   to {
     transform: rotate(360deg);
   }
+}
+.color-fffff {
+  color: var(--color-ffffff);
 }
