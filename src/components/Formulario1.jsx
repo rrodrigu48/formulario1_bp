@@ -191,7 +191,8 @@ const Formulario1 = () =>{
         setModoEdicion(false)
         setError(null)
     }
-    const imagen = 'https://picsum.photos/100' 
+    const imagen = 'https://picsum.photos/100'
+    const texto_alternativo = 'esto es una imagen de picsum' 
     
     return (
         <div className='container mt-5'>
@@ -222,7 +223,7 @@ const Formulario1 = () =>{
                                     <td>{item.direccionCliente}</td>
                                     <td>{item.telefonoCliente}</td>
                                     <td>{item.edadCliente}</td>
-                                    <td> <img src={imagen} /></td>
+                                    <td> <img src={imagen} alt = {texto_alternativo} /></td>
                                     
                                     <td>
                                         <button className='btn btn-danger btn-sm float-end mx-2' onClick={()=> eliminar(item.id)}>Eliminar</button>
